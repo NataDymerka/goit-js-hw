@@ -5,25 +5,15 @@
 
 const findBestEmployee = (employees) => {
     // console.log(employees);
-    const numberOfTasks = Object.values(employees);
-    // console.log(numberOfTasks);
-    let maxNumberOfTasks = numberOfTasks[0];
-    for (let i = 1; i < numberOfTasks.length; i++) {
-        if (maxNumberOfTasks < numberOfTasks[i]) {
-            maxNumberOfTasks = numberOfTasks[i];
-        }
-    }
-    // console.log(maxNumberOfTasks);
+    let maxNumberOfTasks = 0;
     let bestEmployee;
-    const entries = Object.entries(employees)
-    // console.log(entries);
-    for (const entry of entries) {
-        const tasks = entry[1];
-        if (tasks === maxNumberOfTasks) {
-            bestEmployee = entry[0];
+    const keys = Object.keys(employees);
+    for (const key of keys) {
+        if (employees[key] > maxNumberOfTasks) {
+            maxNumberOfTasks = employees[key];
+            bestEmployee = key;
         }
     }
-
     return (`${bestEmployee}: ${maxNumberOfTasks}`)
 }
 
