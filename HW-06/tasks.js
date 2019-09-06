@@ -60,7 +60,7 @@ console.log(getNamesSortedByFriendsCount(users));
 const getSortedUniqueSkills = users =>
     users.reduce((allSkills, user) => {
         allSkills.push(...user.skills);
-        return allSkills.sort().filter((skill, i, allSkills) => allSkills.indexOf(skill) === i);
+        return allSkills.sort().filter((skill, i) => allSkills.indexOf(skill) === i);
     }, []);
 console.log(getSortedUniqueSkills(users));
     // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
