@@ -57,10 +57,58 @@ console.log(getNamesSortedByFriendsCount(users));
 
 // Задание 10. Получить массив всех умений всех пользователей (поле skills), при этом не должно быть 
 // повторяющихся умений и они должны быть отсортированы в алфавитном порядке.
-const getSortedUniqueSkills = users =>
-    users.reduce((allSkills, user) => {
-        allSkills.push(...user.skills);
-        return allSkills.sort().filter((skill, i) => allSkills.indexOf(skill) === i);
-    }, []);
+
+const getSortedUniqueSkills = users => {
+    const allSkills = [];
+    users.forEach(user => {
+        user.skills.forEach(skill => {
+            if (allSkills.indexOf(skill) == -1) {
+                allSkills.push(skill);
+            }
+        })
+    })
+    return allSkills.sort();
+};
 console.log(getSortedUniqueSkills(users));
-    // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
+// ['adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam']
+
+
+
+const getSortedUniqueSkills2 = users => {
+    const allSkills = [];
+    users.forEach(user => {
+        allSkills.push(...user.skills.filter(
+            skill => {
+                return allSkills.indexOf(skill) == -1
+            })
+        );
+    })
+    return allSkills.sort();
+};
+console.log(getSortedUniqueSkills2(users));
+
+
+
+// const getSortedUniqueSkills = users =>
+//     users.reduce((allSkills, user) => {
+//         allSkills.push(...user.skills);
+//         return allSkills.sort().filter((skill, i) => allSkills.indexOf(skill) === i);
+//     }, []);
+
+
+
+// const getSortedUniqueSkills = users => {
+//     const result = [];
+
+//     for (let user of users) {
+
+//         for (let i = 0; i < user.skills.length; i++) {
+//             if (result.indexOf(user.skills[i]) == -1) {
+//                 result.push(user.skills[i]);
+//                 // console.log(result);
+//             }
+//         }
+//     }
+//     return result;
+// }
+// console.log(getSortedUniqueSkills(users));
