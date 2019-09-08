@@ -89,6 +89,22 @@ console.log(getSortedUniqueSkills2(users));
 
 
 
+const getSortedUniqueSkills3 = users =>
+    users.reduce(reducer, []).sort();
+
+
+const reducer = (allSkills, user) => {
+    user.skills.forEach(skill => {
+        if (allSkills.indexOf(skill) == -1) {
+            allSkills.push(skill);
+        }
+    });
+    return allSkills;
+};
+
+console.log(getSortedUniqueSkills3(users));
+
+
 // const getSortedUniqueSkills = users =>
 //     users.reduce((allSkills, user) => {
 //         allSkills.push(...user.skills);
