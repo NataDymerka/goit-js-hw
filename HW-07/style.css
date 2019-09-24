@@ -1,0 +1,35 @@
+body {
+  width: 100%;
+  margin: 0;
+}
+#categories {
+  display: flex;
+  justify-content: space-around;
+}
+#gallery {
+  height: ;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  width: 90%;
+  height: 90%;
+}
+input {
+  margin: 15px;
+  margin-bottom: 0;
+}
+
+#validation-input.invalid {
+  outline: 3px solid #f44336;
+}
+#validation-input.valid {
+  outline: 3px solid #4caf50;
+}
+span#text,
+#counter,
+h1 {
+  padding-left: 30px;
+}
