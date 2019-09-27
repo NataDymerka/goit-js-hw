@@ -13,4 +13,8 @@ nameInput.addEventListener('input', handleInputChange);
 
 function handleInputChange(event) {
     nameOutput.textContent = event.currentTarget.value;
+    if (event.currentTarget.value == '') {
+        nameOutput.textContent = 'незнакомец';
+    }
+
 }
