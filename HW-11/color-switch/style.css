@@ -1,0 +1,11 @@
+button {
+  width: 200px;
+  height: 100px;
+  margin: 50px;
+  background-color: yellowgreen;
+  font-size: 18px;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
