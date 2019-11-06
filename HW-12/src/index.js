@@ -25,14 +25,18 @@ function fetchCounties(input) {
         clear();
         if (data.length > 10) {
             message();
-        } else if (data.length == 1) {
+            return;
+        }
+        if (data.length == 1) {
             console.log(data);
             renderCountryDescr(data[0]);
-
-        } else if (data.length > 1 && data.length <= 10) {
+            return;
+        }
+        if (data.length > 1) {
             console.log(data);
             renderCountryList(data);
         }
+
     }).catch(error => console.log(error));
 }
 
