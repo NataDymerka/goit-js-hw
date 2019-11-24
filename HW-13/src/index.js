@@ -9,12 +9,12 @@ const debounce = require('lodash.debounce');
 const form = document.createElement("form");
 form.setAttribute("id", "search-form");
 form.classList.add("search-form");
-form.innerHTML = `<input type="text" name="query" autocomplete="off" placeholder="Search images..." />`;
+form.innerHTML = `<input type="text" name="query" autocomplete="off" placeholder="Search images..."onkeydown="if(event.keyCode==13){return false;}" />`;
 document.querySelector(".intro").prepend(form);
 const loadMoreBtn = document.querySelector("button");
 const ul = document.createElement("ul");
 ul.classList.add("gallery");
-loadMoreBtn.after(ul);
+loadMoreBtn.before(ul);
 
 const apiKey = '14233608-90ab9ce0666b48ad5cd16ce4e';
 const base = 'https://pixabay.com/api/';
@@ -38,8 +38,9 @@ function inputHandler(e) {
 function loadMoreHandler () {
     pageNumber += 1;
     renderPage(input);
-    window.scrollTo(0, 0);}
-
+    window.scrollTo({bottom: 0, behavior: 'smooth'});
+}
+ 
 const getImages = async(input) => {
     try{
     const url = `${base}?${type}&${orient}&q=${input}&page=${pageNumber}&per_page=${perPage}&key=${apiKey}`;
@@ -56,7 +57,7 @@ function renderPage(input) {
 function markupCreate(results) {
     console.log(results.hits);
     const str = results.hits.map(imageData => cardTemplate(imageData)).join(' ');
-gallery.insertAdjacentHTML('afterbegin', str);
+gallery.insertAdjacentHTML('beforeend', str);
 // document.querySelector("img").addEventListener('click', modalHandler);
 }
 

@@ -16,11 +16,11 @@ body {
   background-image: url('images/bg-pattern.png');
 }
 .search-form {
-  /* margin: 10px auto; */
-  /* padding: 10px; */
+  margin: 10px auto;
 }
-button {
-    margin: 5px 10px 10px;
+.intro {
+  margin: 10px auto;
+  text-align: center;
 }
 ul {
   list-style: none;
@@ -31,7 +31,7 @@ ul {
   margin-top: 0;
 }
 form {
-  display: inline-block;
+  /* display: inline-block; */
   width: 20%;
 }
 .stats {
